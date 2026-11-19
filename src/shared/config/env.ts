@@ -15,9 +15,7 @@ const envSchema = z.object({
         .min(1, "PORT must be between 1 and 65535")
         .max(65535, "PORT must be between 1 and 65535"),
     MONGODB_URI: z.string().trim().min(1, "MONGODB_URI is required"),
-     BETTER_AUTH_SECRET:z.string().trim().min(1,"BETTER_AUTH_SECRET is required"),
-    BETTER_AUTH_URL:z.string().trim().min(1,"BETTER_AUTH_URL is required"),
-    INNGEST_DEV:z.number().int("PORT must be a whole number").default(1)
+    INNGEST_DEV: z.number().int("PORT must be a whole number").default(1)
 });
 
 const parsedEnv = envSchema.safeParse(process.env);
